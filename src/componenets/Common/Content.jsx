@@ -40,6 +40,7 @@ export const Content = () => {
     const getUserInfo = async () => {
         setLoadingApi(true);
         setApiError(null);
+
         try {
             const token = await getAccessTokenSilently();
             const response = await auth0Service.getUserInfo(token);
@@ -51,9 +52,7 @@ export const Content = () => {
         }
     };
 
-    if (isLoading) {
-        return <LoadingScreen />;
-    }
+    if (isLoading) return <LoadingScreen />;
 
     return (
         <Card.Body>

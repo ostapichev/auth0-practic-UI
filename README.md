@@ -106,7 +106,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 </Auth0Provider>
 ```
 
-> **Note:** `BASE_URL_API` and `PROTECTED_API_URL` referenced inside `App.jsx` should be defined as constants (e.g. imported from a `config.js` file or read from `process.env`) rather than left as free-floating globals.
+> **Note:** `BASE_URL_API` and `PROTECTED_API_URL` referenced inside `axiosService.jsx` and `auht0Service.jsx` should be defined as constants (e.g. imported from a `urls.js` file or read from `process.env`) rather than left as free-floating globals.
 
 ## Running the Project
 
@@ -119,8 +119,9 @@ The app will be available at `http://localhost:3000`.
 ## Component Documentation
 
 ### `App.jsx`
-The root component. Holds all application state (`apiResult`, `apiError`, `loadingApi`) and defines the two API-calling functions (`getTestAPI`, `getUserInfo`). Delegates rendering to the components below.
-
+The root component. Holds application state (`Content`)
+### `Content.jsx`
+The component. Holds all application state (`apiResult`, `apiError`, `loadingApi`) and defines the two API-calling functions (`getTestAPI`, `getUserInfo`). Delegates rendering to the components below.
 ### `AuthButtons`
 Renders three buttons: login with popup, login with redirect, and logout. Buttons are automatically disabled based on the current `isAuthenticated` state to prevent invalid actions.
 
@@ -175,11 +176,6 @@ This project is a good starting point for exploring:
 - How Auth0 issues and validates access tokens for calling your own backend API.
 - Structuring a React app so that **state and side effects** (in `App.jsx`) are separated from **presentation** (in `components/`), which makes each piece easier to test and reason about independently.
 - Using a component library (React-Bootstrap) to build a consistent UI quickly without hand-writing CSS classes.
-
-Suggested exercises to extend this project:
-- Add a custom hook (e.g. `useApiRequest`) to remove duplicated `try/catch/loading` logic between `getTestAPI` and `getUserInfo`.
-- Add role-based UI elements using custom claims from the Auth0 user object.
-- Add automated tests for each component using React Testing Library.
 
 ## Contacts:
 - Author - [Oleh Ostapenko](https://github.com/ostapichev)
